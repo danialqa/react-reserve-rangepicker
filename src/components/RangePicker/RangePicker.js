@@ -6,20 +6,35 @@ import "antd/dist/antd.css";
 
 class RangePicker extends PureComponent {
   render() {
-    const { ...rest } = this.props;
+    const {
+      isPersian,
+      startPlaceholder,
+      endPlaceholder,
+      seprated,
+      disabledHourFrom,
+      disabledHourTo,
+      ...rest
+    } = this.props;
 
     return (
       <div className="c--rangepicker">
-        {this.props.isPersian ? (
+        {isPersian ? (
           <PersianCalendar
+            startPlaceholder={startPlaceholder}
+            endPlaceholder={endPlaceholder}
+            seprated={seprated}
+            disabledHourFrom={disabledHourFrom}
+            disabledHourTo={disabledHourTo}
             {...rest}
-            disabledHourFrom={this.props.disabledHourFrom}
-            disabledHourTo={this.props.disabledHourTo}
           />
         ) : (
           <GregorianCalendar
-            disabledHourFrom={this.props.disabledHourFrom}
-            disabledHourTo={this.props.disabledHourTo}
+            startPlaceholder={startPlaceholder}
+            endPlaceholder={endPlaceholder}
+            seprated={seprated}
+            disabledHourFrom={disabledHourFrom}
+            disabledHourTo={disabledHourTo}
+            {...rest}
           />
         )}
       </div>
