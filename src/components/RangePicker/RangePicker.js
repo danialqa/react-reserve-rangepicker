@@ -17,7 +17,10 @@ class RangePicker extends PureComponent {
             disabledHourTo={this.props.disabledHourTo}
           />
         ) : (
-          <GregorianCalendar />
+          <GregorianCalendar
+            disabledHourFrom={this.props.disabledHourFrom}
+            disabledHourTo={this.props.disabledHourTo}
+          />
         )}
       </div>
     );
