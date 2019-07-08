@@ -1,0 +1,52 @@
+{
+	"name": "react-reserve-rangepicker",
+	"version": "1.0.0",
+	"description": "react-reserve-rangepicker",
+	"main": "dist/rinse.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "webpack --mode production",
+		"storybook": "start-storybook -p 9001",
+		"docz:dev": "docz dev",
+		"docz:build": "docz build"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/danialghahremani/react-reserve-rangepicker"
+	},
+	"keywords": [
+		"boilerplate",
+		"react",
+		"shared",
+		"components",
+		"components"
+	],
+	"author": "Danial Ghahremani",
+	"license": "MIT",
+	"devDependencies": {
+		"@babel/core": "^7.2.2",
+		"@babel/preset-env": "^7.2.3",
+		"@babel/preset-react": "^7.0.0",
+		"@storybook/addon-actions": "^4.0.0-alpha.20",
+		"@storybook/react": "^4.0.0-alpha.20",
+		"@tulipjs/eslint-config": "^1.1.1",
+		"antd": "^3.20.1",
+		"antd-jalali-moment": "^3.3.2",
+		"babel-loader": "^8.0.1",
+		"css-loader": "^1.0.0",
+		"docz": "^1.2.0",
+		"docz-theme-default": "^1.2.0",
+		"node-sass": "^4.9.3",
+		"sass-loader": "^7.1.0",
+		"style-loader": "^0.23.1",
+		"url-loader": "^1.1.2",
+		"webpack": "^4.28.3",
+		"webpack-cli": "^3.2.0"
+	},
+	"dependencies": {
+		"prop-types": "^15.7.2",
+		"react": "^16.8.6",
+		"react-dom": "^16.8.6",
+		"styled-components": "^4.2.1"
+	}
+}
