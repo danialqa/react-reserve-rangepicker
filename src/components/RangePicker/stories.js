@@ -2,7 +2,7 @@ import React from "react";
 // Import the storybook libraries
 import { storiesOf } from "@storybook/react";
 // Import our component from this folder
-import Rangepicker from "./RangePicker";
+import Rangepicker from "./Rangepicker";
 
 // Here we describe the stories we want to see of the Button. The component is
 // pretty simple so we will just make two, one with text and one with emojis
