@@ -1,0 +1,14 @@
+code {
+  padding: 15px;
+  width: 100%;
+  background-color: #f1f1f1;
+  margin: auto;
+  margin-top: 40px;
+  display: block;
+  font-weight: bold;
+  font-family: courier, monospace !important;
+}
+
+.preview {
+  padding: 25px 40px;
+}

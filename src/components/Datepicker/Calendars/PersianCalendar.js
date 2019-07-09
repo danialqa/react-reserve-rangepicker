@@ -10,7 +10,7 @@ moment.locale("fa");
 
 class PersianCalendar extends PureComponent {
   render() {
-    const { ...rest } = this.props;
+    const { disabledDate, ...rest } = this.props;
 
     return (
       <LocaleProvider locale={fa_IR}>
@@ -18,9 +18,13 @@ class PersianCalendar extends PureComponent {
           <DatePicker
             {...rest}
             size="large"
-            disabledDate={current => {
-              return current && current < moment().endOf("day");
-            }}
+            disabledDate={
+              disableDate
+                ? current => {
+                    return current && current < moment().endOf("day");
+                  }
+                : null
+            }
             disabledTime={() => {
               const range = (start, end) => {
                 const result = [];

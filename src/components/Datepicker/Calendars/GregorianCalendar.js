@@ -9,7 +9,7 @@ moment.locale("en");
 
 class GregorianCalendar extends PureComponent {
   render() {
-    const { ...rest } = this.props;
+    const { disableDate, ...rest } = this.props;
 
     return (
       <LocaleProvider locale={en_GB}>
@@ -17,9 +17,13 @@ class GregorianCalendar extends PureComponent {
           <DatePicker
             {...rest}
             size="large"
-            disabledDate={current => {
-              return current && current < moment().endOf("day");
-            }}
+            disabledDate={
+              disableDate
+                ? current => {
+                    return current && current < moment().endOf("day");
+                  }
+                : null
+            }
             disabledTime={() => {
               const range = (start, end) => {
                 const result = [];

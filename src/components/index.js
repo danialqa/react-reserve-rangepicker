@@ -2,4 +2,5 @@
 // and explicit. This thorough exporting method can seem like a lot, but it
 // allows for simpler scaling when your library grows in size, and even adds
 // different tech like TypeScript
-export { default as RangePicker } from './RangePicker';
+export { default as Rangepicker } from "./Rangepicker";
+export { default as Datepicker } from "./Datepicker";

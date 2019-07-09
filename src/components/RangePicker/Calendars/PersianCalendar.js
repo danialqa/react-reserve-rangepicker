@@ -63,7 +63,9 @@ class PersianCalendar extends PureComponent {
       showTime,
       format,
       startPlaceholder,
-      endPlaceholder
+      endPlaceholder,
+      disableDate,
+      ...rest
     } = this.props;
     const { startValue, endValue, endOpen } = this.state;
 
@@ -82,6 +84,7 @@ class PersianCalendar extends PureComponent {
                 placeholder={startPlaceholder ? startPlaceholder : "Start Date"}
                 onChange={this.onStartChange}
                 onOpenChange={this.handleStartOpenChange}
+                {...rest}
               />
               <DatePicker
                 className="seprated-rangepicker--input input-to"
@@ -94,15 +97,20 @@ class PersianCalendar extends PureComponent {
                 onChange={this.onEndChange}
                 open={endOpen}
                 onOpenChange={this.handleEndOpenChange}
+                {...rest}
               />
             </div>
           ) : (
             <RangePicker
               size="large"
               showTime={showTime}
-              disabledDate={current => {
-                return current && current < moment().endOf("day");
-              }}
+              disabledDate={
+                disableDate
+                  ? current => {
+                      return current && current < moment().endOf("day");
+                    }
+                  : null
+              }
               disabledTime={() => {
                 const range = (start, end) => {
                   const result = [];
@@ -124,6 +132,7 @@ class PersianCalendar extends PureComponent {
                     )
                 };
               }}
+              {...rest}
             />
           )}
         </div>

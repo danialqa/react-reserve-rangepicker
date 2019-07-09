@@ -10,12 +10,18 @@ import Datepicker from "./Datepicker";
 //
 // .add() takes a name and then a function that should return what you want
 // rendered in the rendering area
+
+import "../../story.css";
+
 storiesOf("Datepicker").add("Datepicker", () => (
-  <Datepicker
-    showTime
-    disabledHourFrom={0}
-    disabledHourTo={10}
-    disabledMinuteFrom={20}
-    disabledMinuteTo={30}
-  />
+  <div className="preview">
+    <h1>Default Datepicker</h1>
+    <Datepicker
+    // showTime
+    // disabledHourFrom={0}
+    // disabledHourTo={10}
+    // disabledMinuteFrom={20}
+    // disabledMinuteTo={30}
+    />
+  </div>
 ));
