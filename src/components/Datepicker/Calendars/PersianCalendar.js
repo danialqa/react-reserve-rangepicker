@@ -9,40 +9,42 @@ import moment from "moment";
 moment.locale("fa");
 
 class PersianCalendar extends PureComponent {
+  disabledDate = current => {
+    // Can not select days before today and today
+    return current && current < moment().endOf("day");
+  };
+
+  disabledTime = () => {
+    const {
+      disabledHourFrom,
+      disabledHourTo,
+      disabledMinuteFrom,
+      disabledMinuteTo
+    } = this.props;
+    const range = (start, end) => {
+      const result = [];
+      for (let i = start; i < end; i++) {
+        result.push(i);
+      }
+      return result;
+    };
+    return {
+      disabledHours: () => range(disabledHourFrom, disabledHourTo),
+      disabledMinutes: () => range(disabledMinuteFrom, disabledMinuteTo)
+    };
+  };
+
   render() {
-    const { disabledDate, ...rest } = this.props;
+    const { disableDate, ...rest } = this.props;
 
     return (
       <LocaleProvider locale={fa_IR}>
         <div className="c--persian-calendar">
           <DatePicker
-            {...rest}
             size="large"
-            disabledDate={
-              disableDate
-                ? current => {
-                    return current && current < moment().endOf("day");
-                  }
-                : null
-            }
-            disabledTime={() => {
-              const range = (start, end) => {
-                const result = [];
-                for (let i = start; i < end; i++) {
-                  result.push(i);
-                }
-                return result;
-              };
-              return {
-                disabledHours: () =>
-                  range(this.props.disabledHourFrom, this.props.disabledHourTo),
-                disabledMinutes: () =>
-                  range(
-                    this.props.disabledMinuteFrom,
-                    this.props.disabledMinuteTo
-                  )
-              };
-            }}
+            disabledDate={disableDate ? this.disabledDate : null}
+            disabledTime={this.disabledTime}
+            {...rest}
           />
         </div>
       </LocaleProvider>

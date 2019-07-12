@@ -17,6 +17,7 @@ class PersianCalendar extends PureComponent {
     endOpen: false
   };
 
+  // Seprated Range Picker Functions
   disabledStartDate = startValue => {
     const { endValue } = this.state;
     if (!startValue || !endValue) {
@@ -57,6 +58,32 @@ class PersianCalendar extends PureComponent {
     this.setState({ endOpen: open });
   };
 
+  // Normal Range Picker Functions
+  disabledDate = current => {
+    // Can not select days before today and today
+    return current && current < moment().endOf("day");
+  };
+
+  disabledTime = () => {
+    const {
+      disabledHourFrom,
+      disabledHourTo,
+      disabledMinuteFrom,
+      disabledMinuteTo
+    } = this.props;
+    const range = (start, end) => {
+      const result = [];
+      for (let i = start; i < end; i++) {
+        result.push(i);
+      }
+      return result;
+    };
+    return {
+      disabledHours: () => range(disabledHourFrom, disabledHourTo),
+      disabledMinutes: () => range(disabledMinuteFrom, disabledMinuteTo)
+    };
+  };
+
   render() {
     const {
       seprated,
@@ -79,9 +106,9 @@ class PersianCalendar extends PureComponent {
                 size="large"
                 showTime={showTime}
                 disabledDate={this.disabledStartDate}
-                format={format ? format : "jYYYY-jMM-jDD HH:mm:ss"}
+                format={format}
                 value={startValue}
-                placeholder={startPlaceholder ? startPlaceholder : "Start Date"}
+                placeholder={startPlaceholder ? startPlaceholder : "تاریخ شروع"}
                 onChange={this.onStartChange}
                 onOpenChange={this.handleStartOpenChange}
                 {...rest}
@@ -91,9 +118,9 @@ class PersianCalendar extends PureComponent {
                 size="large"
                 showTime={this.props.showTime}
                 disabledDate={this.disabledEndDate}
-                format={format ? format : "jYYYY-jMM-jDD HH:mm:ss"}
+                format={format}
                 value={endValue}
-                placeholder={endPlaceholder ? endPlaceholder : "End Date"}
+                placeholder={endPlaceholder ? endPlaceholder : "تاریخ پایان"}
                 onChange={this.onEndChange}
                 open={endOpen}
                 onOpenChange={this.handleEndOpenChange}
@@ -104,34 +131,12 @@ class PersianCalendar extends PureComponent {
             <RangePicker
               size="large"
               showTime={showTime}
-              disabledDate={
-                disableDate
-                  ? current => {
-                      return current && current < moment().endOf("day");
-                    }
-                  : null
-              }
-              disabledTime={() => {
-                const range = (start, end) => {
-                  const result = [];
-                  for (let i = start; i < end; i++) {
-                    result.push(i);
-                  }
-                  return result;
-                };
-                return {
-                  disabledHours: () =>
-                    range(
-                      this.props.disabledHourFrom,
-                      this.props.disabledHourTo
-                    ),
-                  disabledMinutes: () =>
-                    range(
-                      this.props.disabledMinuteFrom,
-                      this.props.disabledMinuteTo
-                    )
-                };
-              }}
+              placeholder={[
+                startPlaceholder ? startPlaceholder : "تاریخ شروع",
+                endPlaceholder ? endPlaceholder : "تاریخ پایان"
+              ]}
+              disabledDate={disableDate ? this.disabledDate : null}
+              disabledTime={this.disabledTime}
               {...rest}
             />
           )}

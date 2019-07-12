@@ -8,6 +8,31 @@ import moment from "moment";
 moment.locale("en");
 
 class GregorianCalendar extends PureComponent {
+  disabledDate = current => {
+    // Can not select days before today and today
+    return current && current < moment().endOf("day");
+  };
+
+  disabledTime = () => {
+    const {
+      disabledHourFrom,
+      disabledHourTo,
+      disabledMinuteFrom,
+      disabledMinuteTo
+    } = this.props;
+    const range = (start, end) => {
+      const result = [];
+      for (let i = start; i < end; i++) {
+        result.push(i);
+      }
+      return result;
+    };
+    return {
+      disabledHours: () => range(disabledHourFrom, disabledHourTo),
+      disabledMinutes: () => range(disabledMinuteFrom, disabledMinuteTo)
+    };
+  };
+
   render() {
     const { disableDate, ...rest } = this.props;
 
@@ -15,33 +40,10 @@ class GregorianCalendar extends PureComponent {
       <LocaleProvider locale={en_GB}>
         <div className="c--gregorian-calendar">
           <DatePicker
-            {...rest}
             size="large"
-            disabledDate={
-              disableDate
-                ? current => {
-                    return current && current < moment().endOf("day");
-                  }
-                : null
-            }
-            disabledTime={() => {
-              const range = (start, end) => {
-                const result = [];
-                for (let i = start; i < end; i++) {
-                  result.push(i);
-                }
-                return result;
-              };
-              return {
-                disabledHours: () =>
-                  range(this.props.disabledHourFrom, this.props.disabledHourTo),
-                disabledMinutes: () =>
-                  range(
-                    this.props.disabledMinuteFrom,
-                    this.props.disabledMinuteTo
-                  )
-              };
-            }}
+            disabledDate={disableDate ? this.disabledDate : null}
+            disabledTime={this.disabledTime}
+            {...rest}
           />
         </div>
       </LocaleProvider>

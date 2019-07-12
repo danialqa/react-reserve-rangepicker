@@ -4,13 +4,6 @@ import { storiesOf } from "@storybook/react";
 // Import our component from this folder
 import Rangepicker from "./Rangepicker";
 
-// Here we describe the stories we want to see of the Button. The component is
-// pretty simple so we will just make two, one with text and one with emojis
-// Simple call storiesOf and then chain .add() as many times as you wish
-//
-// .add() takes a name and then a function that should return what you want
-// rendered in the rendering area
-
 import "../../story.css";
 
 storiesOf("Rangepicker").add("Default", () => (
@@ -56,6 +49,21 @@ storiesOf("Rangepicker").add("Seprated", () => (
     <Rangepicker
       showTime
       seprated
+      disabledHourFrom={0}
+      disabledHourTo={10}
+      disabledMinuteFrom={20}
+      disabledMinuteTo={30}
+    />
+  </div>
+));
+
+storiesOf("Rangepicker").add("Seprated Persian", () => (
+  <div className="preview">
+    <h1>Seprated Persian</h1>
+    <Rangepicker
+      showTime
+      seprated
+      isPersian
       disabledHourFrom={0}
       disabledHourTo={10}
       disabledMinuteFrom={20}

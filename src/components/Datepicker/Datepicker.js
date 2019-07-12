@@ -6,20 +6,20 @@ import "antd/dist/antd.css";
 
 class Datepicker extends PureComponent {
   render() {
-    const { disabledHourFrom, disabledHourTo, ...rest } = this.props;
+    const { isPersian, disabledHourFrom, disabledHourTo, ...rest } = this.props;
 
     return (
       <div className="c--datepicker">
-        {this.props.isPersian ? (
+        {isPersian ? (
           <PersianCalendar
-            disabledHourFrom={this.props.disabledHourFrom}
-            disabledHourTo={this.props.disabledHourTo}
+            disabledHourFrom={disabledHourFrom}
+            disabledHourTo={disabledHourTo}
             {...rest}
           />
         ) : (
           <GregorianCalendar
-            disabledHourFrom={this.props.disabledHourFrom}
-            disabledHourTo={this.props.disabledHourTo}
+            disabledHourFrom={disabledHourFrom}
+            disabledHourTo={disabledHourTo}
             {...rest}
           />
         )}

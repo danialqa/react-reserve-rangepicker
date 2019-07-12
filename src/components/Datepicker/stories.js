@@ -17,11 +17,13 @@ storiesOf("Datepicker").add("Datepicker", () => (
   <div className="preview">
     <h1>Default Datepicker</h1>
     <Datepicker
-    // showTime
-    // disabledHourFrom={0}
-    // disabledHourTo={10}
-    // disabledMinuteFrom={20}
-    // disabledMinuteTo={30}
+      isPersian
+      // disableDate
+      // showTime
+      // disabledHourFrom={0}
+      // disabledHourTo={10}
+      // disabledMinuteFrom={20}
+      // disabledMinuteTo={30}
     />
   </div>
 ));
