@@ -4,7 +4,7 @@ import React, { PureComponent } from "react";
 import { GregorianCalendar, PersianCalendar } from "./Calendars";
 import "antd/dist/antd.css";
 
-class Rangepicker extends PureComponent {
+class RangePicker extends PureComponent {
   render() {
     const {
       isPersian,
@@ -42,4 +42,4 @@ class Rangepicker extends PureComponent {
   }
 }
 
-export default Rangepicker;
+export default RangePicker;

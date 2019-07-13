@@ -21,12 +21,12 @@ yarn add react-reserve-rangepicker
 ```javascript
 import React from "react";
 
-import { RangePicker } from "react-reserve-rangepicker";
+import { Rangepicker } from "react-reserve-rangepicker";
 
 function MyComponent() {
   return (
     <div className="MyComponent">
-      <RangePicker />
+      <Rangepicker />
     </div>
   );
 }

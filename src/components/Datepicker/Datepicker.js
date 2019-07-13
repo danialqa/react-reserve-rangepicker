@@ -4,7 +4,7 @@ import React, { PureComponent } from "react";
 import { GregorianCalendar, PersianCalendar } from "./Calendars";
 import "antd/dist/antd.css";
 
-class Datepicker extends PureComponent {
+class DatePicker extends PureComponent {
   render() {
     const { isPersian, disabledHourFrom, disabledHourTo, ...rest } = this.props;
 
@@ -28,4 +28,4 @@ class Datepicker extends PureComponent {
   }
 }
 
-export default Datepicker;
+export default DatePicker;
