@@ -71,6 +71,11 @@ There are two kinds of picker:
 | disableDate | Specifies whether or not the previous days are selectable | boolean |False||
 | showTime | to provide an additional time selection | object / boolean | False|showTime={{ format: 'HH:mm' }}|
 
+| Property | Description |     |     |     |
+| -------- | ----------- | --- | --- | --- |
+|          |             |     |     |     |
+|          |             |     |     |     |
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
