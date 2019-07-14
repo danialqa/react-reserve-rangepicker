@@ -1,6 +1,6 @@
 # React Reserve Rangepicker
 
-With Gregorian and Persian (Jalaali) Calendar
+Gregorian and Persian (Jalaali) Calendar
 
 ## Installation
 
@@ -18,21 +18,58 @@ yarn add react-reserve-rangepicker
 
 ## Usage
 
+#### :fa-chevron-right: Rangepicker Component
+
 ```javascript
-import React from "react";
+/* @flow */
+import React, { PureComponent } from "react";
+import { RangePicker } from "react-reserve-rangepicker";
 
-import { Rangepicker } from "react-reserve-rangepicker";
-
-function MyComponent() {
-  return (
-    <div className="MyComponent">
-      <Rangepicker />
-    </div>
-  );
+class MyComponent extends PureComponent {
+  render() {
+    return (
+      <div className="MyComponent">
+        <RangePicker />
+      </div>
+    );
+  }
 }
 
 export default MyComponent;
 ```
+
+#### :fa-chevron-right: Datepicker Component
+
+```javascript
+/* @flow */
+import React, { PureComponent } from "react";
+import { Datepicker } from "react-reserve-rangepicker";
+
+class MyComponent extends PureComponent {
+  render() {
+    return (
+      <div className="MyComponent">
+        <Datepicker />
+      </div>
+    );
+  }
+}
+
+export default MyComponent;
+```
+
+## API
+
+There are two kinds of picker:
+:fa-dot-circle-o: DatePicker
+:fa-dot-circle-o: RangePicker
+
+####DatePicker
+| Property | Description | Type | Default| Example
+| ------------ | ------------ | ------------ |
+| isPersian | localization configuration | boolean | False||
+| disableDate | Specifies whether or not the previous days are selectable | boolean |False||
+| showTime | to provide an additional time selection | object / boolean | False|showTime={{ format: 'HH:mm' }}|
 
 ## Contributing
 
