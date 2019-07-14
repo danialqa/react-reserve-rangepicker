@@ -60,11 +60,7 @@ export default MyComponent;
 
 ## API
 
-There are two kinds of picker:
-:fa-dot-circle-o: DatePicker
-:fa-dot-circle-o: RangePicker
-
-####DatePicker
+The following APIs are shared by DatePicker and RangePicker.
 
 | Property           | Description                                               | Type             | Default | Example                          |
 | ------------------ | --------------------------------------------------------- | ---------------- | ------- | -------------------------------- |
