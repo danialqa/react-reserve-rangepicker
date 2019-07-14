@@ -18,7 +18,7 @@ yarn add react-reserve-rangepicker
 
 ## Usage
 
-#### :fa-chevron-right: Rangepicker Component
+#### Rangepicker Component
 
 ```javascript
 /* @flow */
@@ -38,7 +38,7 @@ class MyComponent extends PureComponent {
 export default MyComponent;
 ```
 
-#### :fa-chevron-right: Datepicker Component
+#### Datepicker Component
 
 ```javascript
 /* @flow */
