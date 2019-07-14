@@ -71,10 +71,13 @@ There are two kinds of picker:
 | disableDate | Specifies whether or not the previous days are selectable | boolean |False||
 | showTime | to provide an additional time selection | object / boolean | False|showTime={{ format: 'HH:mm' }}|
 
-| Property | Description |     |     |     |
-| -------- | ----------- | --- | --- | --- |
-|          |             |     |     |     |
-|          |             |     |     |     |
+| Property    | Description                                               | Type             | Default | Example                          |
+| ----------- | --------------------------------------------------------- | ---------------- | ------- | -------------------------------- |
+| isPersian   | localization configuration                                | boolean          | False   |                                  |
+| disableDate | Specifies whether or not the previous days are selectable | boolean          | False   |                                  |
+| showTime    | to provide an additional time selection                   | object / boolean | False   | `showTime={{ format: ‘HH:mm’ }}` |
+|             |                                                           |                  |         |                                  |
+|             |                                                           |                  |         |                                  |
 
 ## Contributing
 
