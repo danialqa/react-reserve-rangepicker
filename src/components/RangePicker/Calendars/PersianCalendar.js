@@ -1,7 +1,7 @@
 /* @flow */
 
 import React, { PureComponent } from "react";
-import { DatePicker, LocaleProvider, Icon } from "antd";
+import { DatePicker, LocaleProvider } from "antd";
 import fa_IR from "antd/lib/locale-provider/fa_IR";
 import "moment/locale/fa";
 import moment from "moment";

@@ -60,7 +60,7 @@ class GregorianCalendar extends PureComponent {
   // Normal Range Picker Functions
   disabledDate = current => {
     // Can not select days before today and today
-    return current && current < moment().endOf("day");
+    return current && !current.valueOf() < Date.now();
   };
 
   disabledTime = () => {
@@ -80,6 +80,14 @@ class GregorianCalendar extends PureComponent {
     return {
       disabledHours: () => range(disabledHourFrom, disabledHourTo),
       disabledMinutes: () => range(disabledMinuteFrom, disabledMinuteTo)
+    };
+  };
+
+  disabledDateTime = () => {
+    return {
+      disabledHours: () => range(0, 24).splice(4, 20),
+      disabledMinutes: () => range(30, 60),
+      disabledSeconds: () => [55, 56]
     };
   };
 
