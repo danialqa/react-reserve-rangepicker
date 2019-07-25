@@ -57,10 +57,34 @@ class GregorianCalendar extends PureComponent {
     this.setState({ endOpen: open });
   };
 
-  // Normal Range Picker Functions
-  disabledDate = current => {
-    // Can not select days before today and today
-    return current && !current.valueOf() < Date.now();
+  // Disable past days
+  disablePastDays = current => {
+    const date = moment();
+    date.hour(0);
+    date.minute(0);
+    date.second(0);
+    return current.isBefore(date);
+  };
+
+  // Enable date range
+  enableDatesRange = current => {
+    const { enableDateFrom, enableDateTo } = this.props;
+
+    const firstDate = moment(enableDateFrom);
+    const secondDate = moment(enableDateTo);
+    firstDate.hour(0);
+    firstDate.minute(0);
+    firstDate.second(0);
+
+    secondDate.hour(24);
+    secondDate.minute(0);
+    secondDate.second(0);
+
+    if (enableDateTo) {
+      return current.isBefore(firstDate) + current.isAfter(secondDate);
+    } else {
+      return current.isBefore(firstDate);
+    }
   };
 
   disabledTime = () => {
@@ -83,14 +107,6 @@ class GregorianCalendar extends PureComponent {
     };
   };
 
-  disabledDateTime = () => {
-    return {
-      disabledHours: () => range(0, 24).splice(4, 20),
-      disabledMinutes: () => range(30, 60),
-      disabledSeconds: () => [55, 56]
-    };
-  };
-
   render() {
     const {
       seprated,
@@ -98,7 +114,8 @@ class GregorianCalendar extends PureComponent {
       format,
       startPlaceholder,
       endPlaceholder,
-      disableDate,
+      disablePastDays,
+      enableDateFrom,
       ...rest
     } = this.props;
     const { startValue, endValue, endOpen } = this.state;
@@ -142,7 +159,13 @@ class GregorianCalendar extends PureComponent {
                 startPlaceholder ? startPlaceholder : "Start Date",
                 endPlaceholder ? endPlaceholder : "End Date"
               ]}
-              disabledDate={disableDate ? this.disabledDate : null}
+              disabledDate={
+                disablePastDays || enableDateFrom
+                  ? disablePastDays
+                    ? this.disablePastDays
+                    : this.enableDatesRange
+                  : null
+              }
               disabledTime={this.disabledTime}
               {...rest}
             />

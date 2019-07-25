@@ -9,16 +9,19 @@ import "../../story.css";
 storiesOf("RangePicker").add("Default", () => (
   <div className="preview">
     <h1>Default RangePicker</h1>
-    <Rangepicker
-      disabledDateFrom={"2019-07-01"}
-      disabledDateTo={"2019-07-07"}
-    />
+    <Rangepicker />
   </div>
 ));
-storiesOf("RangePicker").add("Disable Dates", () => (
+storiesOf("RangePicker").add("Enabled Dates Range", () => (
   <div className="preview">
-    <h1>Disable Dates</h1>
-    <Rangepicker disableDate />
+    <h1>Enabled Dates Range</h1>
+    <Rangepicker enableDateFrom="2019-07-01" enableDateTo="2019-07-11" />
+  </div>
+));
+storiesOf("RangePicker").add("Disable Past Days", () => (
+  <div className="preview">
+    <h1>Disable Past Days</h1>
+    <Rangepicker disablePastDays />
   </div>
 ));
 storiesOf("RangePicker").add("With Timepicker", () => (
@@ -37,12 +40,6 @@ storiesOf("RangePicker").add("With Time Ranges", () => (
       disabledMinuteFrom={20}
       disabledMinuteTo={30}
     />
-  </div>
-));
-storiesOf("RangePicker").add("Persian RangePicker", () => (
-  <div className="preview">
-    <h1>Persian RangePicker</h1>
-    <Rangepicker isPersian />
   </div>
 ));
 

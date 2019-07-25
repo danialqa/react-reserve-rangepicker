@@ -20,17 +20,17 @@ storiesOf("DatePicker").add("DatePicker", () => (
   </div>
 ));
 
-storiesOf("DatePicker").add("Persian DatePicker", () => (
+storiesOf("DatePicker").add("Enable Dates Range", () => (
   <div className="preview">
-    <h1>Persian DatePicker</h1>
-    <Datepicker isPersian />
+    <h1>Enable Dates Range</h1>
+    <Datepicker enableDateFrom="2019-08-10" enableDateTo="2019-08-20" />
   </div>
 ));
 
-storiesOf("DatePicker").add("Disabled Dates", () => (
+storiesOf("DatePicker").add("Disabled Past Dates", () => (
   <div className="preview">
-    <h1>Disabled Dates</h1>
-    <Datepicker disableDate />
+    <h1>Disabled Past Dates</h1>
+    <Datepicker disablePastDays />
   </div>
 ));
 

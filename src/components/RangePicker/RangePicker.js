@@ -24,11 +24,8 @@ class Rangepicker extends PureComponent {
       seprated,
       disabledHourFrom,
       disabledHourTo,
-      disabledDateFrom,
-      disabledDateTo,
       ...rest
     } = this.props;
-
     const { rangePickerValue, isPersian } = this.state;
 
     return (
@@ -57,8 +54,8 @@ class Rangepicker extends PureComponent {
             startPlaceholder={startPlaceholder}
             endPlaceholder={endPlaceholder}
             seprated={seprated}
-            disabledDateFrom={disabledDateFrom}
-            disabledDateTo={disabledDateTo}
+            disabledHourFrom={disabledHourFrom}
+            disabledHourTo={disabledHourTo}
             renderExtraFooter={() => (
               <div className="extraFooter">
                 <Button onClick={this.changeCalendarHandler}>

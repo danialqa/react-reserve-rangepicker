@@ -58,10 +58,34 @@ class PersianCalendar extends PureComponent {
     this.setState({ endOpen: open });
   };
 
-  // Normal Range Picker Functions
-  disabledDate = current => {
-    // Can not select days before today and today
-    return current && current < moment().endOf("day");
+  // Disable past days
+  disablePastDays = current => {
+    const date = moment();
+    date.hour(0);
+    date.minute(0);
+    date.second(0);
+    return current.isBefore(date);
+  };
+
+  // Enable date range
+  enableDatesRange = current => {
+    const { enableDateFrom, enableDateTo } = this.props;
+
+    const firstDate = moment(enableDateFrom);
+    const secondDate = moment(enableDateTo);
+    firstDate.hour(0);
+    firstDate.minute(0);
+    firstDate.second(0);
+
+    secondDate.hour(24);
+    secondDate.minute(0);
+    secondDate.second(0);
+
+    if (enableDateTo) {
+      return current.isBefore(firstDate) + current.isAfter(secondDate);
+    } else {
+      return current.isBefore(firstDate);
+    }
   };
 
   disabledTime = () => {
@@ -91,7 +115,8 @@ class PersianCalendar extends PureComponent {
       format,
       startPlaceholder,
       endPlaceholder,
-      disableDate,
+      disablePastDays,
+      enableDateFrom,
       ...rest
     } = this.props;
     const { startValue, endValue, endOpen } = this.state;
@@ -135,7 +160,13 @@ class PersianCalendar extends PureComponent {
                 startPlaceholder ? startPlaceholder : "تاریخ شروع",
                 endPlaceholder ? endPlaceholder : "تاریخ پایان"
               ]}
-              disabledDate={disableDate ? this.disabledDate : null}
+              disabledDate={
+                disablePastDays || enableDateFrom
+                  ? disablePastDays
+                    ? this.disablePastDays
+                    : this.enableDatesRange
+                  : null
+              }
               disabledTime={this.disabledTime}
               {...rest}
             />
