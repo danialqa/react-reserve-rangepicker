@@ -1,6 +1,6 @@
-# React Reserve Rangepicker
+# React Reserve Rangepicker/Datepicker
 
-Gregorian and Persian (Jalaali) Calendar
+Gregorian and Persian (Jalaali) Calendar 
 
 ## Installation
 
