@@ -29,7 +29,7 @@
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
     "@storybook/addon-actions": "^4.0.0-alpha.20",
-    "@storybook/react": "^4.0.0-alpha.20",
+    "@storybook/react": "^7.0.9",
     "@tulipjs/eslint-config": "^1.1.1",
     "antd": "^3.20.1",
     "antd-jalali-moment": "^3.3.2",
